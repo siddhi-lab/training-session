@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+    stages {
+        stage('Install ansible roles') {
+            steps {
+               echo "pipeline code via github on jenkins"
+            }
+        }
+    
+    }
+   
+}
