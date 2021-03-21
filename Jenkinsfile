@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Install ansible roles') {
             steps {
-               echo "pipeline code via github on jenkins"
+               sh 'echo "pipeline code via github on jenkins"'
             }
         }
     
