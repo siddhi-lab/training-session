@@ -1,4 +1,10 @@
 ---
 - name: nothing
-  shell: pwd
+  shell: python3 /var/lib/jenkins/workspace/test-ansible/scripts/test.py
+  register: py_op
+  delegate_to: localhost
+
+- name: debug py script op
+  debug:
+    msg: "python script output: {{py_op}}"
   delegate_to: localhost
