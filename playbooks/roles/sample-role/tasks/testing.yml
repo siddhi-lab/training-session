@@ -1,0 +1,11 @@
+---
+- name: include vars
+  include_vars: /home/ec2-user/ansible-projects/inventory-sample/playbooks/vars.yml
+
+- name: win shell test
+  win_shell: write-output "Hi {{name}}, she is employed with {{emp}}"
+  register: result
+
+- name: debug
+  debug:
+    var: result
