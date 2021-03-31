@@ -6,8 +6,8 @@ node {
   remote.password = 'welcome@1234'
   remote.allowAnyHosts = true
   //def rowsCommand = ''
+   /*
   stage('Lun Path Inputs'){
-    /*
     script{
         lunIdPSCommand = sh(script: 'ansible-playbook -i playbooks/inventory playbooks/main.yml -vvv', returnStdout: true)
        println lunIdPSCommand
