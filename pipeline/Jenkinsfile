@@ -18,6 +18,12 @@ node {
            //sh 'ansible --version'
            //sh 'ansible-playbook -i playbooks/inventory playbooks/main.yml -vvv'
            sh 'pwd;whoami'
+    try{
            sshCommand remote: remote, command:lunIdPSCommand
+    }
+    catch(e) {
+       build_ok = false
+       echo e.toString()
+    }
   }
 }
