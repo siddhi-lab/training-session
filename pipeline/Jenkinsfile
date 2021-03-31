@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Github-Integration') {
             steps {
-                 sh 'ansible-playbook -i inventory playbooks/main.yml  -vvv'
+                 sh 'ansible-playbook -i playbooks/inventory playbooks/main.yml  -vvv'
             }
         }
     
