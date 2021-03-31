@@ -5,7 +5,7 @@ node {
   remote.user = 'root'
   remote.password = 'welcome@1234'
   remote.allowAnyHosts = true
-  //def rowsCommand = ''
+  def rowsCommand = ''
    
   stage('Lun Path Inputs'){
     script{
