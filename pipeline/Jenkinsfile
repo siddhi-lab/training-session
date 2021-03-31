@@ -8,6 +8,6 @@ node {
   //def rowsCommand = ''
   stage('Remote SSH') {
            sh 'ansible --version'
-           sh 'ansible-playbook -i inventory playbooks/main.yml -vvv'
+           sh 'ansible-playbook -i playbooks/inventory playbooks/main.yml -vvv'
   }
 }
