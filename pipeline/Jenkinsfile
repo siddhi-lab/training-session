@@ -1,0 +1,13 @@
+node {
+  def remote = [:]
+  remote.name = 'ansible-container'
+  remote.host = '172.18.0.2'
+  remote.user = 'root'
+  remote.password = 'welcome@1234'
+  remote.allowAnyHosts = true
+  //def rowsCommand = ''
+  stage('Remote SSH') {
+           sh 'ansible --version'
+           sh 'ansible-playbook -i inventory playbooks/main.yml -vvv'
+  }
+}
