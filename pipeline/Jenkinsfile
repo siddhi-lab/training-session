@@ -9,15 +9,13 @@ node {
    
   stage('Lun Path Inputs'){
     script{
-        lunIdPSCommand = sh(script: 'cd /home/projects; git clone ;ansible-playbook -i training-session/playbooks/inventory training-session/playbooks/main.yml -vvv', returnStdout: true)
-       println lunIdPSCommand
+        lunIdPSCommand = sh(script: 'cd /home/projects; pwd; git clone https://github.com/Shweta217/training-session.git; ansible-playbook -i training-session/playbooks/inventory training-session/playbooks/main.yml -vvv', returnStdout: true)
+        println lunIdPSCommand
     }
   }
   
   stage('Remote SSH') {
            //sh 'ansible --version'
-           //sh 'ansible-playbook -i playbooks/inventory playbooks/main.yml -vvv'
-           sh 'pwd;whoami;'
     try{
            sshCommand remote: remote, command:lunIdPSCommand
     }
