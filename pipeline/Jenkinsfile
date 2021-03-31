@@ -1,6 +1,6 @@
 node {
   def remote = [:]
-  remote.name = 'ansible-container'
+  remote.name = '52.66.207.103'
   remote.host = '172.18.0.2'
   remote.user = 'root'
   remote.password = 'welcome@1234'
