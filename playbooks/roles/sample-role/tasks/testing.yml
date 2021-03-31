@@ -1,6 +1,6 @@
 ---
 - name: include vars
-  include_vars: playbooks/vars.yml
+  include_vars: /var/lib/jenkins/workspace/test-ansible/playbooks/vars.yml
 
 - name: win shell test
   win_shell: write-output "Hi {{name}}, she is employed with {{emp}}"
