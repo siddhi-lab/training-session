@@ -1,0 +1,28 @@
+---
+- block:
+    - name: include vars
+      include_vars: /home/ec2-user/ansible-projects/inventory-sample/playbooks/vars.yml
+    - name: win shell test
+      win_shell: wmic MEMORYCHIP get Capacity
+      register: result
+    - name: debug
+      debug:
+        var: result.stdout_lines[-4] | trim
+    - name: calculate cap in GB
+      #shell: python3 /home/ec2-user/ansible-projects/inventory-sample/scripts/calc1.py "{{result.stdout_lines[-4] | trim}}"
+      shell:  python3 /home/ec2-user/ansible-projects/inventory-sample/scripts/calc1.py
+      register: cap_result
+      delegate_to: localhost
+    - name: debugging cap_result var
+      debug:
+        var: cap_result
+      delegate_to: localhost
+  rescue:	
+    - name: error is there, and I am in rescue section
+      shell: echo "Hi, error showed up and I am in recuse section"
+      delegate_to: localhost
+
+    - name: I am failing now
+      fail:
+        msg: " Aborting! because error showed up "
+      delegate_to: localhost
