@@ -1,7 +1,0 @@
-ansible_user: Administrator
-ansible_password: 'P$a7W=!f4UhtNaCUGa2=ldI(a$(TV-d?'
-ansible_ssh_pass: 'P$a7W=!f4UhtNaCUGa2=ldI(a$(TV-d?'
-ansible_port: 5985
-ansible_connection: winrm
-ansible_winrm_server_cert_validation: ignore
-ansible_winrm_transport: ntlm

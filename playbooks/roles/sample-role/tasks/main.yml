@@ -1,8 +1,0 @@
----
-# tasks file for sample-role
-
-- name: include testing task
-  include_tasks: testing.yml
-
-- name: include sample task
-  include_tasks: sample.yml

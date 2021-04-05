@@ -1,0 +1,5 @@
+---
+# tasks file for loop-test-role
+
+- name: include task
+  include_tasks: loop_task.yml

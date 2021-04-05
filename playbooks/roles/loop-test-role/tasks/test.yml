@@ -1,0 +1,7 @@
+---
+- name: give me what loop holds
+  debug:
+    msg: 
+      #- " i am in test.yml, printing loop_var value {{loop_assignment_var}}"
+      - " i am in test.yml, printing loop_var index {{loop_assignment_var.0}}"
+      - " i am in test.yml, printing loop_var value {{loop_assignment_var.1}}"

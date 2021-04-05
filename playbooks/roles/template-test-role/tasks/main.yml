@@ -1,0 +1,15 @@
+---
+
+- name: remove templated out file if already exists
+  file:
+    path: /tmp/templated_out.txt
+    state: absent
+  tags: temp-tag
+
+- name: tempalte out
+  template:
+    src: temp_out.j2
+    dest: /tmp/templated_out.txt
+  tags: temp-tag
+
+  

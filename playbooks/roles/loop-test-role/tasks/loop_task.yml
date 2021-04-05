@@ -1,0 +1,29 @@
+---
+- name: set arry fact
+  set_fact:
+    arry: ['9','8','7','6']
+
+- name: indexed items loop
+  debug:
+    msg:
+      - "this is index, {{item.0}}"
+      - "this is value, {{item.1}}"
+  with_indexed_items: "{{arry}}"
+
+- name: loop var
+  include: test.yml
+  loop_control: 
+    loop_var: loop_assignment_var 
+  #with_items: "{{arry}}"
+  with_indexed_items: "{{arry}}"
+
+- name: set fact for dict
+  set_fact:
+    dict_is: {'a':'1','b':'2','c':'10','d':'hi'}
+
+- name: loop over dict
+  debug:
+    msg: 
+      - "this is key, {{item.key}}"
+      - "this is value, {{item.value}}"
+  with_dict: "{{dict_is}}"

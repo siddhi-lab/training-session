@@ -1,7 +1,14 @@
 ---
-- name: play
-  hosts: windows
+- name: loop play
+  hosts: localhost
   gather_facts: no
-  #vars_files: vars.yml
   roles:
-    - roles/sample-role
+    - roles/loop-test-role
+
+- name: template play
+  hosts: localhost
+  gather_facts: no
+  vars_files: vars.yml
+  roles:
+    - roles/template-test-role
+  tags: temp-tag
