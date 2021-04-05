@@ -1,2 +1,2 @@
-# pankaj-jenkins-test
-jenkins learn
+# training session
+ansible loop and template code 
