@@ -5,4 +5,4 @@
   #vars_files: vars.yml
   roles:
     #- roles/sample-role
-    - roles/siddhitest-role
+   - roles/siddhitest-role
