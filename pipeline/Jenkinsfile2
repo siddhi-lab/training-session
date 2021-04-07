@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Github-Integration') {
             steps {
-                 sh 'pwd; ansible-playbook --vault-password-file /var/lib/jenkins/.ansi -i playbooks/inventory playbooks/main.yml  -vvv'
-                //sh 'pwd; ansible-playbook  -i playbooks/inventory playbooks/main.yml  -vvv'
+                 //sh 'pwd; ansible-playbook --vault-password-file /var/lib/jenkins/.ansi -i playbooks/inventory playbooks/main.yml  -vvv'
+                sh 'pwd; ansible-playbook  -i playbooks/inventory playbooks/main.yml  -vvv'
             }
         }
     
