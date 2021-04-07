@@ -1,7 +1,37 @@
 ---
-- name: play
+- name: size and count play
   hosts: windows
   gather_facts: no
-  #vars_files: vars.yml
-  roles:
-    - roles/sample-role
+  tasks:
+    - name: get server size
+      win_shell: wmic MEMORYCHIP get Capacity
+      register: size_op
+    - name: debug
+      debug:
+        var: size_op.stdout_lines[-4]
+    - name: calc size`in gb 
+      shell: python3 /home/ec2-user/ansible-projects/size-count/scripts/calculate.py {{size_op.stdout_lines[-4] | trim}}
+      register: capacity
+      delegate_to: localhost
+    - name: debugging cap_result var
+      debug:
+        var: capacity
+      delegate_to: localhost
+    - name: get cpu count
+      win_shell: Get-CimInstance -ClassName 'Win32_Processor' ` | Select 'NumberOfCores'
+      register: cpu_c
+    - name: debug cpu count
+      debug:
+        var: cpu_c.stdout_lines[-3] | trim
+    - name: obtain ip of windows
+      win_shell: Test-Connection -ComputerName (hostname) -Count 1  | Select IPV4Address
+      register: ip_is
+    - name: debug obtained ip
+      debug:
+        var: ip_is.stdout_lines[-3] | trim
+    - name: set fact for ip, cpu count and mem in GB
+      set_fact:
+        cpu_count: "{{cpu_c.stdout_lines[-3] | trim}}"
+        ip: "{{ ip_is.stdout_lines[-3] | trim }}"
+        mem_GB: "{{ capacity.stdout_lines[0].split(':')[1] | trim }}"
+     
